@@ -354,15 +354,10 @@
 
         /* === HERO ROTATION === */
         .hero h1, .hero-points {
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 1.2s ease;
         }
         .hero h1.fade-out, .hero-points.fade-out {
             opacity: 0;
-            transform: translateY(-12px);
-        }
-        .hero h1.fade-in, .hero-points.fade-in {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* === RESPONSIVE === */
@@ -619,7 +614,7 @@
                 heroPoints.innerHTML = renderPoints(slide.points);
                 heroTitle.classList.remove('fade-out');
                 heroPoints.classList.remove('fade-out');
-            }, 500);
+            }, 1000);
         }, 7000);
     </script>
 </body>
