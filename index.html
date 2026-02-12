@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quedy — Turnos online para tu negocio</title>
+    <title>Quedy — Gestión inteligente para tu negocio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -26,16 +26,8 @@
             --shadow-lg: 0 12px 48px rgba(27, 42, 74, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
@@ -46,810 +38,330 @@
 
         /* === NAV === */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            padding: 16px 0;
-            transition: all 0.4s ease;
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            padding: 16px 0; transition: all 0.4s ease;
         }
-
         nav.scrolled {
             background: rgba(255, 250, 247, 0.92);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(27, 42, 74, 0.06);
             padding: 12px 0;
         }
-
         .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 0 32px;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
         .logo {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.6rem;
-            color: var(--secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem;
+            color: var(--secondary); text-decoration: none;
+            display: flex; align-items: center; gap: 8px;
         }
-
         .logo-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: inline-block;
+            width: 10px; height: 10px; background: var(--primary);
+            border-radius: 50%; display: inline-block;
             animation: pulse-dot 2s ease infinite;
         }
-
         @keyframes pulse-dot {
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.4); opacity: 0.7; }
         }
-
         .nav-cta {
-            background: var(--secondary);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            background: var(--secondary); color: white; padding: 10px 24px;
+            border-radius: 100px; text-decoration: none; font-weight: 600;
+            font-size: 0.9rem; transition: all 0.3s ease;
         }
-
         .nav-cta:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
+            background: var(--primary); transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
         }
 
         /* === HERO === */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 120px 32px 80px;
-            overflow: hidden;
+            min-height: 100vh; display: flex; align-items: center;
+            position: relative; padding: 120px 32px 80px; overflow: hidden;
         }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 700px;
-            height: 700px;
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 700px; height: 700px;
             background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            border-radius: 50%; pointer-events: none;
         }
-
         .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -150px;
-            width: 500px;
-            height: 500px;
+            content: ''; position: absolute; bottom: -100px; left: -150px;
+            width: 500px; height: 500px;
             background: radial-gradient(circle, rgba(0, 201, 167, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            border-radius: 50%; pointer-events: none;
         }
-
         .hero-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
+        .hero-content { position: relative; z-index: 2; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 201, 167, 0.1);
-            color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            animation: fadeInUp 0.8s ease;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(0, 201, 167, 0.1); color: var(--accent);
+            padding: 8px 16px; border-radius: 100px; font-size: 0.85rem;
+            font-weight: 600; margin-bottom: 24px; animation: fadeInUp 0.8s ease;
         }
-
-        .hero-badge::before {
-            content: '✦';
-            font-size: 0.7rem;
-        }
-
+        .hero-badge::before { content: '✦'; font-size: 0.7rem; }
         .hero h1 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--secondary);
+            font-family: 'Outfit', sans-serif; font-weight: 800;
+            font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.1;
+            margin-bottom: 24px; color: var(--secondary);
             animation: fadeInUp 0.8s ease 0.1s both;
         }
-
         .hero h1 span {
-            color: var(--primary);
-            position: relative;
+            color: var(--primary); position: relative;
         }
-
         .hero h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 107, 53, 0.2);
-            border-radius: 3px;
+            content: ''; position: absolute; bottom: 2px; left: 0;
+            width: 100%; height: 6px; background: rgba(255, 107, 53, 0.2); border-radius: 3px;
         }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 480px;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease 0.2s both;
+        .hero-points {
+            display: flex; flex-direction: column; gap: 12px;
+            margin-bottom: 36px; animation: fadeInUp 0.8s ease 0.2s both;
         }
-
+        .hero-point {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 1.1rem; color: var(--text-light);
+        }
+        .hero-point-icon {
+            width: 32px; height: 32px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; flex-shrink: 0;
+        }
+        .hero-point-icon.orange { background: rgba(255, 107, 53, 0.1); }
+        .hero-point-icon.green { background: rgba(0, 201, 167, 0.1); }
+        .hero-point-icon.blue { background: rgba(27, 42, 74, 0.06); }
         .hero-actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
+            display: flex; gap: 16px; flex-wrap: wrap;
             animation: fadeInUp 0.8s ease 0.3s both;
         }
-
         .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 16px 36px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            background: var(--primary); color: white; padding: 16px 36px;
+            border-radius: 100px; text-decoration: none; font-weight: 700;
+            font-size: 1rem; border: none; cursor: pointer; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 10px;
             box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
         }
-
         .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
+            background: var(--primary-dark); transform: translateY(-3px);
             box-shadow: 0 8px 28px rgba(255, 107, 53, 0.4);
         }
-
         .btn-secondary {
-            background: transparent;
-            color: var(--secondary);
-            padding: 16px 36px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 2px solid rgba(27, 42, 74, 0.12);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            background: transparent; color: var(--secondary); padding: 16px 36px;
+            border-radius: 100px; text-decoration: none; font-weight: 600;
+            font-size: 1rem; border: 2px solid rgba(27, 42, 74, 0.12);
+            cursor: pointer; transition: all 0.3s ease;
         }
-
         .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
+            border-color: var(--primary); color: var(--primary); transform: translateY(-2px);
         }
 
         /* Hero Visual */
-        .hero-visual {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
+        .hero-visual { position: relative; z-index: 2; animation: fadeInUp 0.8s ease 0.4s both; }
         .phone-mockup {
-            background: var(--bg-card);
-            border-radius: 32px;
-            padding: 20px;
-            box-shadow: var(--shadow-lg);
-            max-width: 360px;
-            margin: 0 auto;
-            border: 1px solid rgba(27, 42, 74, 0.06);
-            position: relative;
+            background: var(--bg-card); border-radius: 32px; padding: 20px;
+            box-shadow: var(--shadow-lg); max-width: 360px; margin: 0 auto;
+            border: 1px solid rgba(27, 42, 74, 0.06); position: relative;
         }
-
         .phone-mockup::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 80px;
-            height: 80px;
-            background: var(--accent);
-            border-radius: 50%;
-            opacity: 0.1;
+            content: ''; position: absolute; top: -20px; right: -20px;
+            width: 80px; height: 80px; background: var(--accent);
+            border-radius: 50%; opacity: 0.1;
         }
-
         .phone-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(27, 42, 74, 0.06);
+            display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+            padding-bottom: 16px; border-bottom: 1px solid rgba(27, 42, 74, 0.06);
         }
-
         .phone-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
+            width: 44px; height: 44px; border-radius: 14px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
         }
-
-        .phone-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .phone-subtitle {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .slot-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
+        .phone-title { font-weight: 700; font-size: 0.95rem; }
+        .phone-subtitle { font-size: 0.8rem; color: var(--text-muted); }
+        .slot-list { display: flex; flex-direction: column; gap: 10px; }
         .slot {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 16px;
-            border-radius: var(--radius-sm);
-            background: var(--bg);
-            transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 16px; border-radius: var(--radius-sm); background: var(--bg);
         }
-
         .slot:nth-child(1) { animation: slideIn 0.5s ease 0.6s both; }
         .slot:nth-child(2) { animation: slideIn 0.5s ease 0.7s both; }
         .slot:nth-child(3) { animation: slideIn 0.5s ease 0.8s both; }
         .slot:nth-child(4) { animation: slideIn 0.5s ease 0.9s both; }
-
-        .slot-time {
-            font-weight: 700;
-            font-size: 0.95rem;
-            min-width: 60px;
-        }
-
-        .slot-name {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            flex: 1;
-            margin-left: 12px;
-        }
-
-        .slot-badge {
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .slot-badge.confirmed {
-            background: rgba(0, 201, 167, 0.1);
-            color: var(--accent);
-        }
-
-        .slot-badge.pending {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--primary);
-        }
-
-        .slot-badge.new {
-            background: rgba(27, 42, 74, 0.06);
-            color: var(--text-light);
-        }
-
+        .slot-time { font-weight: 700; font-size: 0.95rem; min-width: 60px; }
+        .slot-name { font-size: 0.85rem; color: var(--text-light); flex: 1; margin-left: 12px; }
+        .slot-badge { padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; }
+        .slot-badge.confirmed { background: rgba(0, 201, 167, 0.1); color: var(--accent); }
+        .slot-badge.pending { background: rgba(255, 107, 53, 0.1); color: var(--primary); }
+        .slot-badge.new { background: rgba(27, 42, 74, 0.06); color: var(--text-light); }
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(-20px); }
             to { opacity: 1; transform: translateX(0); }
         }
-
-        /* Floating elements */
         .float-element {
-            position: absolute;
-            background: white;
-            border-radius: 16px;
-            padding: 12px 18px;
-            box-shadow: var(--shadow);
-            font-size: 0.85rem;
-            font-weight: 600;
-            z-index: 3;
-            animation: float 3s ease infinite;
+            position: absolute; background: white; border-radius: 16px;
+            padding: 12px 18px; box-shadow: var(--shadow); font-size: 0.85rem;
+            font-weight: 600; z-index: 3; animation: float 3s ease infinite;
         }
-
-        .float-1 {
-            top: 20px;
-            right: -20px;
-            color: var(--accent);
-        }
-
-        .float-2 {
-            bottom: 40px;
-            left: -30px;
-            color: var(--primary);
-            animation-delay: 1.5s;
-        }
-
+        .float-1 { top: 20px; right: -20px; color: var(--accent); }
+        .float-2 { bottom: 40px; left: -30px; color: var(--primary); animation-delay: 1.5s; }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
 
-        /* === PROBLEMS SECTION === */
-        .problems {
-            padding: 100px 32px;
-            background: white;
-        }
-
-        .section-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* === SECTIONS COMMON === */
+        .section-inner { max-width: 1200px; margin: 0 auto; }
         .section-label {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary);
-            margin-bottom: 16px;
+            font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 16px;
         }
-
         .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            color: var(--secondary);
-            margin-bottom: 16px;
-            line-height: 1.2;
+            font-family: 'Outfit', sans-serif; font-weight: 800;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--secondary);
+            margin-bottom: 16px; line-height: 1.2;
         }
-
         .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 560px;
-            margin-bottom: 56px;
+            font-size: 1.1rem; color: var(--text-light); max-width: 560px; margin-bottom: 56px;
         }
 
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
+        /* === PROBLEMS === */
+        .problems { padding: 100px 32px; background: white; }
+        .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .problem-card {
-            background: var(--bg);
-            border-radius: var(--radius);
-            padding: 36px 28px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+            background: var(--bg); border-radius: var(--radius); padding: 36px 28px;
+            transition: all 0.3s ease; border: 1px solid transparent;
         }
-
         .problem-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
+            transform: translateY(-4px); box-shadow: var(--shadow);
             border-color: rgba(255, 107, 53, 0.1);
         }
-
         .problem-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            width: 56px; height: 56px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 20px;
         }
-
         .problem-icon.red { background: rgba(255, 107, 53, 0.1); }
         .problem-icon.blue { background: rgba(27, 42, 74, 0.06); }
         .problem-icon.green { background: rgba(0, 201, 167, 0.1); }
-
         .problem-card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.15rem;
-            margin-bottom: 10px;
-            color: var(--secondary);
+            font-family: 'Outfit', sans-serif; font-weight: 700;
+            font-size: 1.15rem; margin-bottom: 10px; color: var(--secondary);
         }
-
-        .problem-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+        .problem-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; }
 
         /* === HOW IT WORKS === */
-        .how-it-works {
-            padding: 100px 32px;
-            background: var(--bg);
-        }
-
+        .how-it-works { padding: 100px 32px; background: var(--bg); }
         .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 56px;
-            position: relative;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+            margin-top: 56px; position: relative;
         }
-
         .steps::before {
-            content: '';
-            position: absolute;
-            top: 44px;
-            left: 15%;
-            right: 15%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            opacity: 0.2;
+            content: ''; position: absolute; top: 44px; left: 15%; right: 15%;
+            height: 2px; background: linear-gradient(90deg, var(--primary), var(--accent)); opacity: 0.2;
         }
-
-        .step {
-            text-align: center;
-            position: relative;
-        }
-
+        .step { text-align: center; position: relative; }
         .step-number {
-            width: 88px;
-            height: 88px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 2rem;
-            position: relative;
-            z-index: 2;
+            width: 88px; height: 88px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px; font-family: 'Outfit', sans-serif;
+            font-weight: 800; font-size: 2rem; position: relative; z-index: 2;
         }
-
-        .step:nth-child(1) .step-number {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--primary);
-        }
-
-        .step:nth-child(2) .step-number {
-            background: rgba(27, 42, 74, 0.06);
-            color: var(--secondary);
-        }
-
-        .step:nth-child(3) .step-number {
-            background: rgba(0, 201, 167, 0.1);
-            color: var(--accent);
-        }
-
+        .step:nth-child(1) .step-number { background: rgba(255, 107, 53, 0.1); color: var(--primary); }
+        .step:nth-child(2) .step-number { background: rgba(27, 42, 74, 0.06); color: var(--secondary); }
+        .step:nth-child(3) .step-number { background: rgba(0, 201, 167, 0.1); color: var(--accent); }
         .step h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--secondary);
+            font-family: 'Outfit', sans-serif; font-weight: 700;
+            font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary);
         }
-
-        .step p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            max-width: 280px;
-            margin: 0 auto;
-        }
+        .step p { font-size: 0.95rem; color: var(--text-light); max-width: 280px; margin: 0 auto; }
 
         /* === BENEFITS === */
         .benefits {
-            padding: 100px 32px;
-            background: var(--secondary);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            padding: 100px 32px; background: var(--secondary); color: white;
+            position: relative; overflow: hidden;
         }
-
         .benefits::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -100px;
-            width: 500px;
-            height: 500px;
+            content: ''; position: absolute; top: -200px; right: -100px;
+            width: 500px; height: 500px;
             background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 60%);
             border-radius: 50%;
         }
-
         .benefits .section-label { color: var(--primary-light); }
         .benefits .section-title { color: white; }
         .benefits .section-subtitle { color: rgba(255, 255, 255, 0.6); }
-
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            position: relative;
-            z-index: 2;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+            position: relative; z-index: 2;
         }
-
         .benefit-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius);
-            padding: 32px 28px;
-            transition: all 0.3s ease;
+            border-radius: var(--radius); padding: 32px 28px; transition: all 0.3s ease;
         }
-
-        .benefit-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-3px);
-        }
-
-        .benefit-icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
-        }
-
+        .benefit-card:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-3px); }
+        .benefit-icon { font-size: 2rem; margin-bottom: 16px; }
         .benefit-card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.15rem;
-            margin-bottom: 8px;
+            font-family: 'Outfit', sans-serif; font-weight: 700;
+            font-size: 1.15rem; margin-bottom: 8px;
         }
-
-        .benefit-card p {
-            font-size: 0.92rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.6;
-        }
-
-        /* === BOOKING === */
-        .booking {
-            padding: 100px 32px;
-            background: var(--bg);
-        }
-
-        .booking-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 20px;
-        }
-
-        .booking-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 40px 28px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text);
-            border: 2px solid rgba(27, 42, 74, 0.06);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .booking-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .booking-icon {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
-        }
-
-        .booking-card h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--secondary);
-        }
-
-        .booking-duration {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .booking-btn {
-            margin-top: 16px;
-            background: var(--primary);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 100px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .booking-card:hover .booking-btn {
-            background: var(--primary-dark);
-            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .booking-cards {
-                grid-template-columns: 1fr;
-            }
-        }
+        .benefit-card p { font-size: 0.92rem; color: rgba(255, 255, 255, 0.6); line-height: 1.6; }
 
         /* === CTA === */
-        .cta {
-            padding: 100px 32px;
-            background: var(--bg);
-            text-align: center;
-        }
-
+        .cta { padding: 100px 32px; background: var(--bg); text-align: center; }
         .cta-box {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 32px;
-            padding: 64px 48px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
+            max-width: 700px; margin: 0 auto; background: white; border-radius: 32px;
+            padding: 64px 48px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
         }
-
         .cta-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
         }
-
         .cta-box h2 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            color: var(--secondary);
-            margin-bottom: 16px;
+            font-family: 'Outfit', sans-serif; font-weight: 800;
+            font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--secondary); margin-bottom: 16px;
         }
-
         .cta-box p {
-            color: var(--text-light);
-            font-size: 1.05rem;
-            margin-bottom: 36px;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--text-light); font-size: 1.05rem; margin-bottom: 36px;
+            max-width: 480px; margin-left: auto; margin-right: auto;
         }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
         .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            padding: 16px 36px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+            background: #25D366; color: white; padding: 16px 36px; border-radius: 100px;
+            text-decoration: none; font-weight: 700; font-size: 1rem; border: none;
+            cursor: pointer; transition: all 0.3s ease; display: inline-flex;
+            align-items: center; gap: 10px; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
         }
-
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
-        }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4); }
 
         /* === FOOTER === */
         footer {
-            padding: 40px 32px;
-            text-align: center;
-            background: white;
+            padding: 40px 32px; text-align: center; background: white;
             border-top: 1px solid rgba(27, 42, 74, 0.06);
         }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        footer .logo {
-            display: inline-flex;
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-        }
+        footer p { color: var(--text-muted); font-size: 0.85rem; }
+        footer .logo { display: inline-flex; margin-bottom: 12px; font-size: 1.2rem; }
 
         /* === ANIMATIONS === */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 48px;
-                text-align: center;
-            }
-
-            .hero p { margin-left: auto; margin-right: auto; }
-
+            .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+            .hero-points { align-items: center; }
             .hero-actions { justify-content: center; }
-
-            .problems-grid,
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
+            .problems-grid, .steps { grid-template-columns: 1fr; gap: 20px; }
             .steps::before { display: none; }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .benefits-grid { grid-template-columns: 1fr; }
             .float-element { display: none; }
-
             .cta-box { padding: 40px 28px; }
-
             .phone-mockup { max-width: 300px; }
         }
     </style>
@@ -860,7 +372,7 @@
     <nav id="nav">
         <div class="nav-inner">
             <a href="#" class="logo">Quedy <span class="logo-dot"></span></a>
-            <a href="#reservar" class="nav-cta">Reservá tu turno</a>
+            <a href="#contacto" class="nav-cta">Quiero Quedy para mi negocio</a>
         </div>
     </nav>
 
@@ -869,10 +381,23 @@
         <div class="hero-inner">
             <div class="hero-content">
                 <div class="hero-badge">Gratis para empezar</div>
-                <h1>Dejá de perder clientes por culpa del <span>WhatsApp</span></h1>
-                <p>Quedy organiza los turnos de tu negocio en un solo lugar. Tus clientes reservan online, vos atendés tranquilo.</p>
+                <h1>Tu negocio organizado, tus clientes <span>contentos</span></h1>
+                <div class="hero-points">
+                    <div class="hero-point">
+                        <div class="hero-point-icon orange">📅</div>
+                        Turnos que se agendan solos, sin idas y vueltas
+                    </div>
+                    <div class="hero-point">
+                        <div class="hero-point-icon green">📊</div>
+                        Tu agenda, tus clientes y tus datos en un solo lugar
+                    </div>
+                    <div class="hero-point">
+                        <div class="hero-point-icon blue">🚀</div>
+                        Menos tiempo organizando, más tiempo trabajando
+                    </div>
+                </div>
                 <div class="hero-actions">
-                    <a href="#reservar" class="btn-primary">Reservá tu turno →</a>
+                    <a href="#contacto" class="btn-primary">Empezar gratis →</a>
                     <a href="#como-funciona" class="btn-secondary">¿Cómo funciona?</a>
                 </div>
             </div>
@@ -881,9 +406,9 @@
                     <div class="float-element float-1">✓ Confirmado</div>
                     <div class="float-element float-2">+3 turnos hoy</div>
                     <div class="phone-header">
-                        <div class="phone-avatar">✂️</div>
+                        <div class="phone-avatar">💈</div>
                         <div>
-                            <div class="phone-title">Boxxes</div>
+                            <div class="phone-title">Tu Negocio</div>
                             <div class="phone-subtitle">Hoy — 4 turnos agendados</div>
                         </div>
                     </div>
@@ -918,23 +443,23 @@
     <section class="problems">
         <div class="section-inner">
             <div class="section-label reveal">El problema</div>
-            <h2 class="section-title reveal">Manejar turnos por WhatsApp es un caos</h2>
-            <p class="section-subtitle reveal">Mensajes que se pierden, clientes que no vienen, horas organizando en vez de trabajar.</p>
+            <h2 class="section-title reveal">Gestionar tu negocio no debería ser tan difícil</h2>
+            <p class="section-subtitle reveal">Turnos anotados en papeles, clientes que no avisan, horarios desordenados. Tu negocio merece algo mejor.</p>
             <div class="problems-grid">
                 <div class="problem-card reveal">
-                    <div class="problem-icon red">📱</div>
-                    <h3>Mensajes perdidos</h3>
-                    <p>Entre grupos, audios y fotos, los turnos se pierden en el chat. Un mensaje sin leer = un cliente menos.</p>
+                    <div class="problem-icon red">🗓️</div>
+                    <h3>Agenda desordenada</h3>
+                    <p>Turnos en papeles, en el celular, en la cabeza. Sin un sistema claro, se te escapan clientes y se superponen horarios.</p>
                 </div>
                 <div class="problem-card reveal">
                     <div class="problem-icon blue">🕐</div>
-                    <h3>Tiempo desperdiciado</h3>
-                    <p>Pasás más tiempo coordinando turnos que atendiendo clientes. Ida y vuelta de mensajes para confirmar horarios.</p>
+                    <h3>Tiempo perdido en coordinar</h3>
+                    <p>Horas contestando mensajes, confirmando turnos, reorganizando cancelaciones. Tiempo que podrías usar para atender.</p>
                 </div>
                 <div class="problem-card reveal">
-                    <div class="problem-icon green">👻</div>
-                    <h3>Clientes que no aparecen</h3>
-                    <p>Sin recordatorios automáticos, los clientes se olvidan o no avisan que no van. Huecos en tu agenda.</p>
+                    <div class="problem-icon green">📉</div>
+                    <h3>Clientes que se te van</h3>
+                    <p>Si reservar es complicado, el cliente busca otro lado. Sin recordatorios, se olvidan y no aparecen. Plata que perdés.</p>
                 </div>
             </div>
         </div>
@@ -945,22 +470,22 @@
         <div class="section-inner">
             <div class="section-label reveal">Así de fácil</div>
             <h2 class="section-title reveal">Funcionando en 5 minutos</h2>
-            <p class="section-subtitle reveal">No necesitás saber de tecnología. Si sabés usar WhatsApp, sabés usar Quedy.</p>
+            <p class="section-subtitle reveal">No necesitás saber de tecnología. Si sabés usar un celular, sabés usar Quedy.</p>
             <div class="steps">
                 <div class="step reveal">
                     <div class="step-number">1</div>
-                    <h3>Configuramos tu agenda</h3>
-                    <p>Nos decís tus horarios, servicios y precios. Nosotros armamos todo por vos.</p>
+                    <h3>Configuramos tu negocio</h3>
+                    <p>Nos decís tus horarios, servicios y equipo. Nosotros armamos todo por vos.</p>
                 </div>
                 <div class="step reveal">
                     <div class="step-number">2</div>
                     <h3>Compartís tu link</h3>
-                    <p>Recibís un link único para tu negocio. Lo compartís por WhatsApp, redes o en tu local.</p>
+                    <p>Recibís un link único para tu negocio. Lo compartís por donde quieras: redes, WhatsApp o en tu local.</p>
                 </div>
                 <div class="step reveal">
                     <div class="step-number">3</div>
                     <h3>Tus clientes reservan solos</h3>
-                    <p>Eligen día, hora y servicio. Vos recibís la confirmación y un recordatorio automático.</p>
+                    <p>Eligen día, hora y servicio. Vos recibís la confirmación. Así de simple.</p>
                 </div>
             </div>
         </div>
@@ -997,42 +522,13 @@
         </div>
     </section>
 
-    <!-- BOOKING -->
-    <section class="booking" id="reservar">
-        <div class="section-inner">
-            <div class="section-label reveal">Reservá online</div>
-            <h2 class="section-title reveal">Elegí tu servicio y reservá en segundos</h2>
-            <p class="section-subtitle reveal">Seleccioná el día y horario que te quede mejor. Sin llamadas, sin esperas.</p>
-            <div class="booking-cards reveal">
-                <a href="https://cal.com/boxxes-peluqueria/corte" target="_blank" class="booking-card">
-                    <div class="booking-icon">✂️</div>
-                    <h3>Corte</h3>
-                    <p class="booking-duration">30 minutos</p>
-                    <span class="booking-btn">Reservar →</span>
-                </a>
-                <a href="https://cal.com/boxxes-peluqueria/corte-barba" target="_blank" class="booking-card">
-                    <div class="booking-icon">💈</div>
-                    <h3>Corte + Barba</h3>
-                    <p class="booking-duration">45 minutos</p>
-                    <span class="booking-btn">Reservar →</span>
-                </a>
-                <a href="https://cal.com/boxxes-peluqueria/tenido" target="_blank" class="booking-card">
-                    <div class="booking-icon">🎨</div>
-                    <h3>Teñido</h3>
-                    <p class="booking-duration">3 horas</p>
-                    <span class="booking-btn">Reservar →</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
     <section class="cta" id="contacto">
         <div class="cta-box reveal">
-            <h2>¿Tenés dudas? Escribinos</h2>
-            <p>Si preferís coordinar por WhatsApp o tenés alguna consulta, estamos para ayudarte.</p>
+            <h2>¿Querés organizar tu negocio con Quedy?</h2>
+            <p>Escribinos por WhatsApp. Te lo configuramos en el día, sin costo y sin compromiso.</p>
             <div class="cta-buttons">
-                <a href="https://wa.me/5491134291110?text=Hola!%20Quiero%20reservar%20un%20turno%20en%20Boxxes" class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/5491134291110?text=Hola!%20Quiero%20probar%20Quedy%20para%20mi%20negocio" class="btn-whatsapp" target="_blank">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Escribinos por WhatsApp
                 </a>
@@ -1043,26 +539,18 @@
     <!-- FOOTER -->
     <footer>
         <a href="#" class="logo">Quedy <span class="logo-dot"></span></a>
-        <p>Turnos online para negocios que quieren crecer. 🇦🇷</p>
+        <p>Gestión inteligente para negocios que quieren crecer. 🇦🇷</p>
     </footer>
 
     <script>
-        // Scroll nav effect
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 50);
         });
-
-        // Reveal on scroll
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.15 });
-
         reveals.forEach(el => observer.observe(el));
     </script>
 </body>
