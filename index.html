@@ -352,6 +352,19 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        /* === HERO ROTATION === */
+        .hero h1, .hero-points {
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .hero h1.fade-out, .hero-points.fade-out {
+            opacity: 0;
+            transform: translateY(-12px);
+        }
+        .hero h1.fade-in, .hero-points.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
             .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
@@ -381,8 +394,8 @@
         <div class="hero-inner">
             <div class="hero-content">
                 <div class="hero-badge">Gratis para empezar</div>
-                <h1>Tu negocio organizado, tus clientes <span>contentos</span></h1>
-                <div class="hero-points">
+                <h1 id="hero-title">Tu negocio organizado, tus clientes <span>contentos</span></h1>
+                <div class="hero-points" id="hero-points">
                     <div class="hero-point">
                         <div class="hero-point-icon orange">📅</div>
                         Turnos que se agendan solos, sin idas y vueltas
@@ -552,6 +565,62 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.15 });
         reveals.forEach(el => observer.observe(el));
+
+        // Hero rotation
+        const heroSlides = [
+            {
+                title: 'Tu negocio organizado, tus clientes <span>contentos</span>',
+                points: [
+                    { icon: '📅', color: 'orange', text: 'Turnos que se agendan solos, sin idas y vueltas' },
+                    { icon: '📊', color: 'green', text: 'Tu agenda, tus clientes y tus datos en un solo lugar' },
+                    { icon: '🚀', color: 'blue', text: 'Menos tiempo organizando, más tiempo trabajando' }
+                ]
+            },
+            {
+                title: 'Dejá de perder clientes por <span>desorganización</span>',
+                points: [
+                    { icon: '😤', color: 'orange', text: 'Turnos que se pierden entre mensajes y papeles' },
+                    { icon: '👻', color: 'green', text: 'Clientes que no vuelven porque reservar es un lío' },
+                    { icon: '💸', color: 'blue', text: 'Huecos en tu agenda que podrían ser ingresos' }
+                ]
+            },
+            {
+                title: 'Hacé crecer tu negocio con <span>Quedy</span>',
+                points: [
+                    { icon: '📱', color: 'orange', text: 'Tus clientes reservan desde el celular en segundos' },
+                    { icon: '🔔', color: 'green', text: 'Recordatorios automáticos que reducen ausencias' },
+                    { icon: '💰', color: 'blue', text: 'Empezá gratis, sin contratos ni compromisos' }
+                ]
+            }
+        ];
+
+        let currentSlide = 0;
+        const heroTitle = document.getElementById('hero-title');
+        const heroPoints = document.getElementById('hero-points');
+
+        function renderPoints(points) {
+            return points.map(p => `
+                <div class="hero-point">
+                    <div class="hero-point-icon ${p.color}">${p.icon}</div>
+                    ${p.text}
+                </div>
+            `).join('');
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            const slide = heroSlides[currentSlide];
+
+            heroTitle.classList.add('fade-out');
+            heroPoints.classList.add('fade-out');
+
+            setTimeout(() => {
+                heroTitle.innerHTML = slide.title;
+                heroPoints.innerHTML = renderPoints(slide.points);
+                heroTitle.classList.remove('fade-out');
+                heroPoints.classList.remove('fade-out');
+            }, 500);
+        }, 7000);
     </script>
 </body>
 </html>
