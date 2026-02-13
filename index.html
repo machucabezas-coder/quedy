@@ -362,15 +362,32 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+            .hero { padding: 100px 20px 60px; min-height: auto; }
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
             .hero-points { align-items: center; }
-            .hero-actions { justify-content: center; }
+            .hero-point { font-size: 0.95rem; text-align: left; }
+            .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; justify-content: center; }
             .problems-grid, .steps { grid-template-columns: 1fr; gap: 20px; }
             .steps::before { display: none; }
             .benefits-grid { grid-template-columns: 1fr; }
             .float-element { display: none; }
-            .cta-box { padding: 40px 28px; }
+            .cta-box { padding: 40px 24px; }
             .phone-mockup { max-width: 300px; }
+            .nav-inner { padding: 0 20px; }
+            .nav-cta { font-size: 0.8rem; padding: 8px 16px; }
+            .logo { font-size: 1.3rem; }
+            .problems, .how-it-works, .benefits, .cta { padding: 60px 20px; }
+            .section-subtitle { font-size: 1rem; }
+            .hero-badge { font-size: 0.8rem; }
+            .hero-visual { order: -1; }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero-point { font-size: 0.85rem; }
+            .phone-mockup { max-width: 260px; padding: 16px; }
+            .slot-name { display: none; }
         }
     </style>
 </head>
